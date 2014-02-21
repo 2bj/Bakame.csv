@@ -47,9 +47,9 @@ trait IteratorFilter
     /**
      * Callable function to filter the iterator
      *
-     * @var callable
+     * @var array
      */
-    private $filter;
+    private $filter = [];
 
     /**
      * Set the Iterator filter method
@@ -60,7 +60,7 @@ trait IteratorFilter
      */
     public function setFilter(callable $filter)
     {
-        $this->filter = $filter;
+        $this->filter[] = $filter;
 
         return $this;
     }
@@ -70,15 +70,17 @@ trait IteratorFilter
     *
     * @param \Iterator $iterator
     *
-    * @return \CallbackFilterIterator
+    * @return \Iterator
     */
-    protected function applyFilter($iterator)
+    protected function applyFilter(Iterator $iterator)
     {
         if (! $this->filter) {
             return $iterator;
         }
-        $iterator = new CallbackFilterIterator($iterator, $this->filter);
-        $this->filter = null;
+        foreach ($this->filter as $callable) {
+            $iterator = new CallbackFilterIterator($iterator, $callable);
+        }
+        $this->filter = [];
 
         return $iterator;
     }
