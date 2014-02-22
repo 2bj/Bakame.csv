@@ -56,8 +56,8 @@ $res = $csv->setOffset(799)->setLimit(25)->fetchAll();
 &lt?php
 
 //we fetch the info from a DB using a PDO object
-$sth = $dbh->prepare("SELECT firstname, lastname, emaom FROM users LIMIT 200");
-$sth->fetchMode(PDO::FETCH_ASSOC);
+$sth = $dbh->prepare("SELECT firstname, lastname, email FROM users LIMIT 200");
+$sth->fetchMode(PDO::FETCH_NUM);
 
 //we create the CSV into memory
 $csv = new \Bakame\Csv\Writer(new SplTempFileObject);
