@@ -5,8 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Writing to CSV - Bakame.Csv</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Exo+2:400,500,700,700italic,500italic,400italic">
 <link rel="stylesheet" href="assets/normalize.css">
 <link rel="stylesheet" href="assets/prism.css">
+<link rel="stylesheet" href="assets/screen.css">
 </head>
 <body>
 <header role="banner">
@@ -36,7 +38,7 @@
 
 <h3>insertOne</h3>
 <p><code>insertOne</code> inserts a single row. This method can take an <code>array</code>, a <code>string</code> or an <code>object</code> implementing the <code>__toString</code> method.</p>
-<pre><code class="php">class ToStringEnabledClass
+<pre><code class="language-php">class ToStringEnabledClass
 {
     private $str;
 
@@ -59,7 +61,7 @@ $writer-&gt;insertOne(new ToStringEnabledClass(&quot;john,doe,john.doe@example.c
 
 <h3>insertAll</h3>
 <p><code>insertAll</code> inserts multiple rows. This method can take an <code>array</code> or a <code>Traversable</code> object to add several rows to the CSV data.</p>
-<pre><code class="php">$arr = [
+<pre><code class="language-php">$arr = [
     [1, 2, 3],
     ['foo', 'bar', 'baz'],
     &quot;'john','doe','john.doe@example.com'&quot;,
