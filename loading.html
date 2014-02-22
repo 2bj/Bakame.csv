@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading a CSV document - Bakame.Csv</title>
+<link rel="stylesheet" href="assets/normalize.css">
+<link rel="stylesheet" href="assets/prism.css">
+</head>
+<body>
+<header role="banner">
+	<h1>Bakame.csv</h1>
+	<p class="tagline">Csv data manipulation made easy in PHP</p>
+</header>
+<main>
+	<menu>
+		<h2>Getting Started</h2>
+		<ul>
+			<li><a href="index.html">Introduction</a>
+			<li><a href="simple-example.html">Examples</a>
+			<li><a href="installation.html">Installation</a>
+		</ul>
+		<h2>The Library</h2>
+		<ul>
+			<li class="selected"><a href="loading.html">Loading a CSV</a>
+			<li><a href="reading.html">Reading a CSV</a>
+			<li><a href="writing.html">Writing a CSV</a>
+			<li><a href="conversion.html">Outputting a CSV</a>
+
+		</ul>
+	</menu>
+	<article>
+<h1>Loading a CSV</h1>
+
+<p>The library is composed of two main classes:</p>
+
+<ul>
+<li><code>Bakame\Csv\Reader</code> to extract and filter data from a CSV</li>
+<li><code>Bakame\Csv\Writer</code> to insert new data into a CSV.</li>
+</ul>
+
+<p>Both classes share methods to instantiate, format and output the CSV.</p>
+<p>There's several ways to instantiate these classes:</p>
+<pre><code class="language-php">use Bakame\Csv\Reader;
+use Bakame\Csv\Writer;
+
+$reader = new Reader('/path/to/your/csv/file.csv');
+$reader = new Reader(new SpliFileInfo('/path/to/your/csv/file.csv'), 'rt');
+$reader = Reader::createFromString('john,doe,john.doe@example.com');
+
+//or 
+
+$writer = new Writer('/path/to/your/csv/file.csv', 'ab+');
+$writer = new Writer(new SpliFileObject('/path/to/your/csv/file.csv'));
+$writer = Writer::createFromString('john,doe,john.doe@example.com');
+</code></pre>
+
+<p>Both classes constructors take one optional parameter <code>$open_mode</code> representing the file open mode used by the PHP <a href="http://php.net/manual/en/function.fopen.php">fopen</a> function.</p>
+<p>The <code>$open_mode</code> parameter is taken into account if you instantiate your object with:</p>
+<ul>
+<li>a <code>SplFileInfo</code></li>
+<li>a string path</li>
+</ul>
+<p>The <code>$open_mode</code> parameter is <strong>ignore</strong> if you instantiate your object with:</p>
+<ul>
+<li>a <code>SplFileObject</code></li>
+<li>a <code>SplTempFileObject</code></li>
+</ul>
+<p>When not explicitly set:</p>
+<ul>
+<li>The <code>Bakame\Csv\Writer</code> <code>$open_mode</code> default value is <code>w</code>.</li>
+<li>The <code>Bakame\Csv\Reader</code> <code>$open_mode</code> default value is <code>r</code>.</li>
+</ul>
+<p>The static method <code>createFromString</code> is to be use if your data is a string. This method takes no optional <code>$open_mode</code> parameter.</p>
+<p>Once your object is created you can optionally set:</p>
+<ul>
+<li>the CSV delimiter, enclosure and/or escape characters;</li>
+<li>the object <code>SplFileObject</code> flags;</li>
+<li>the CSV encoding charset if the CSV is not in <code>UTF-8</code>;</li>
+</ul>
+<pre><code class="language-php">$reader = new Reader('/path/to/your/csv/file.csv');
+
+$reader-&gt;setDelimeter(',');
+$reader-&gt;setEnclosure('&quot;');
+$reader-&gt;setEscape('\\');
+$reader-&gt;setFlags(SplFileObject::READ_AHEAD|SplFileObject::SKIP_EMPTY);
+$reader-&gt;setEncoding('iso-8859-1');
+</code></pre>
+	</article>
+</main>
+<footer role="contentinfo">
+	<span>&copy; Nyamagana Butera Ignace.</span>
+	<span>Site design by Nyamagana Butera Ignace</span>
+</footer>
+<script src="assets/prism.js"></script>
+<script>
+var _gaq=[["_setAccount","UA-1200654-1"],["_trackPageview"]], ___gcfg = {lang: 'en'};
+(function(d, t){
+    var g = d.createElement(t),o = d.getElementsByTagName(t)[0];
+        g.src = ('https' == d.location.protocol) ? 'https://ssl.google-analytics.com/ga.js' : 'http://www.google-analytics.com/ga.js';
+        g.async = 1;
+        o.parentNode.insertBefore(g, o);
+})(document, 'script');
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSV Conversion - Bakame.Csv</title>
+<link rel="stylesheet" href="assets/normalize.css">
+<link rel="stylesheet" href="assets/prism.css">
+</head>
+<body>
+<header role="banner">
+	<h1>Bakame.csv</h1>
+	<p class="tagline">Csv data manipulation made easy in PHP</p>
+</header>
+<main>
+	<menu>
+		<h2>Getting Started</h2>
+		<ul>
+			<li><a href="index.html">Introduction</a></li>
+			<li><a href="simple-example.html">Examples</a></li>
+			<li><a href="installation.html">Installation</a></li>
+		</ul>
+		<h2>The Library</h2>
+		<ul>
+			<li><a href="loading.html">Loading a CSV</a></li>
+			<li><a href="reading.html">Reading a CSV</a></li>
+			<li><a href="writing.html">Writing a CSV</a></li>
+			<li class="selected"><a href="conversion.html">Outputting a CSV</a></li>
+		</ul>
+	</menu>
+	<article>
+
+<h1>Outputting the CSV</h1>
+<p><strong>Tips:</strong> Don't forget to set the CSV encoding format before using any outputting CSV method if your data is not <code>UTF-8</code> encoded.</p>
+
+<p>With both classes you can:</p>
+
+<h2>Iterate over the CSV</h2>
+
+<p>Using the <code>foreach</code> construct:</p>
+<pre><code class="language-php">foreach ($reader as $row) {
+    //do something meaningfull here with $row !!
+    //$row is an array where each item represent a CSV data cell
+}
+</code></pre>
+
+
+<h2>Show the CSV content:</h2>
+<p>Use the <code>echo</code> construct on the instantiated object or use the <code>__toString</code> method.</p>
+<pre><code class="language-php">echo $writer;
+//or
+echo $writer-&gt;__toString();
+</code></pre>
+
+<h2>Convert to XML:</h2>
+<p>Use the <code>toXML</code> method to convert the CSV data into a PHP <code>DomDocument</code> object. This method accepts 3 optionals arguments <code>$root_name</code>, <code>$row_name</code>, <code>$cell_name</code> to help you customize the XML tree. </p>
+<p>By default:</p>
+<ul>
+<li><code>$root_name = 'csv'</code> </li>
+<li><code>$row_name = 'row'</code> </li>
+<li><code>$cell_name = 'cell'</code> </li>
+</ul>
+
+<pre><code class="language-php">$dom = $writer-&gt;toXML('data', 'item', 'cell');
+</code></pre>
+
+<h2>Convert to HTML table:</h2>
+<p>Use the <code>toHTML</code> method to format the CSV data into an HTML table. This method accepts an optional argument <code>$classname</code> to help you customize the table rendering, by defaut the classname given to the table is <code>table-csv-data</code>.</p>
+<pre><code class="language-php">echo $writer-&gt;toHTML('table table-bordered table-hover');
+</code></pre>
+
+<h2>Convert to Json</h2>
+<p>Use the <code>json_encode</code> function directly on the instantiated object.</p>
+<pre><code class="language-php">echo json_encode($writer);
+</code></pre>
+
+<p><strong>Of Note:</strong> When using the <code>toHTML</code>, <code>toXML</code> methods and the <code>json_encode</code> function, the data is internally convert if needed into <code>UTF-8</code>.</p>
+<h2>download the CSV</h2>
+<p>If you only wish to make your CSV downloadable just use the <code>output</code> method to return to the output buffer the CSV content.</p>
+<pre><code class="language-php">$reader-&gt;setEncoding('ISO-8859-15');
+header('Content-Type: text/csv; charset=&quot;'.$reader-&gt;getEncoding().'&quot;');
+header('Content-Disposition: attachment; filename=&quot;name-for-your-file.csv&quot;');
+$reader-&gt;output();
+</code></pre>
+
+<p>The output method can take an optional argument <code>$filename</code>. When present you can even omit most of the headers.</p>
+<pre><code class="language-php">$reader-&gt;setEncoding('ISO-8859-15');
+$reader-&gt;output(&quot;name-for-your-file.csv&quot;);
+</code></pre>
+</article>
+</main>
+<footer role="contentinfo">
+	<span>&copy; Nyamagana Butera Ignace.</span>
+	<span>Site design by <a href="https://www.nyamsprod.com">Nyamagana Butera Ignace</a></span>
+</footer>
+<script src="assets/prism.js"></script>
+<script>
+var _gaq=[["_setAccount","UA-1200654-1"],["_trackPageview"]], ___gcfg = {lang: 'en'};
+(function(d, t){
+    var g = d.createElement(t),o = d.getElementsByTagName(t)[0];
+        g.src = ('https' == d.location.protocol) ? 'https://ssl.google-analytics.com/ga.js' : 'http://www.google-analytics.com/ga.js';
+        g.async = 1;
+        o.parentNode.insertBefore(g, o);
+})(document, 'script');
+</script>
+</body>
+</html>

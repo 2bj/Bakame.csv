@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing to CSV - Bakame.Csv</title>
+<link rel="stylesheet" href="assets/normalize.css">
+<link rel="stylesheet" href="assets/prism.css">
+</head>
+<body>
+<header role="banner">
+	<h1>Bakame.csv</h1>
+	<p class="tagline">Csv data manipulation made easy in PHP</p>
+</header>
+<main>
+	<menu>
+		<h2>Getting Started</h2>
+		<ul>
+			<li><a href="index.html">Introduction</a></li>
+			<li><a href="simple-example.html">Examples</a></li>
+			<li><a href="installation.html">Installation</a></li>
+		</ul>
+		<h2>The Library</h2>
+		<ul>
+			<li><a href="loading.html">Loading a CSV</a></li>
+			<li><a href="reading.html">Reading a CSV</a></li>
+			<li class="selected"><a href="writing.html">Writing a CSV</a></li>
+			<li><a href="conversion.html">Outputting a CSV</a></li>
+		</ul>
+	</menu>
+	<article>
+<h1>Inserting data into the CSV</h1>
+
+<p>To create or update a CSV use the following specific <code>Bakame\Csv\Writer</code> methods.</p>
+
+<h3>insertOne</h3>
+<p><code>insertOne</code> inserts a single row. This method can take an <code>array</code>, a <code>string</code> or an <code>object</code> implementing the <code>__toString</code> method.</p>
+<pre><code class="php">class ToStringEnabledClass
+{
+    private $str;
+
+    public function __construct($str)
+    {
+        $this-&gt;str = $str;
+    }
+
+    public function __toString()
+    {
+        return $this-&gt;str;
+    }
+}
+
+$writer-&gt;insertOne(['john', 'doe', 'john.doe@example.com']); //used with an array
+$writer-&gt;insertOne(&quot;'john','doe','john.doe@example.com'&quot;);   //used with a string
+$writer-&gt;insertOne(new ToStringEnabledClass(&quot;john,doe,john.doe@example.com&quot;)) //used with an object implementing the '__toString' magic method;
+
+</code></pre>
+
+<h3>insertAll</h3>
+<p><code>insertAll</code> inserts multiple rows. This method can take an <code>array</code> or a <code>Traversable</code> object to add several rows to the CSV data.</p>
+<pre><code class="php">$arr = [
+    [1, 2, 3],
+    ['foo', 'bar', 'baz'],
+    &quot;'john','doe','john.doe@example.com'&quot;,
+    new ToStringEnabledClass(&quot;john,doe,john.doe@example.com&quot;)
+];
+
+$writer-&gt;insertAll($arr) //using an array 
+
+$object = new ArrayIterator($arr);
+$writer-&gt;insertAll($object); //using a Traversable object
+</code></pre>
+
+<p><strong>When inserting strings don't forget to specify the CSV delimiter and enclosure characters that match those use in the string</strong>.</p>
+
+
+<p><strong>Of note:</strong> When creating a file using the library, first insert all the data that need to be inserted before starting manipulating the CSV. If you manipulate your data before insertion, you may change the file cursor position and get unexpected results.</p>
+
+	</article>
+</main>
+<footer role="contentinfo">
+	<span>&copy; Nyamagana Butera Ignace.</span>
+	<span>Site design by Nyamagana Butera Ignace</span>
+</footer>
+<script src="assets/prism.js"></script>
+<script>
+var _gaq=[["_setAccount","UA-1200654-1"],["_trackPageview"]], ___gcfg = {lang: 'en'};
+(function(d, t){
+    var g = d.createElement(t),o = d.getElementsByTagName(t)[0];
+        g.src = ('https' == d.location.protocol) ? 'https://ssl.google-analytics.com/ga.js' : 'http://www.google-analytics.com/ga.js';
+        g.async = 1;
+        o.parentNode.insertBefore(g, o);
+})(document, 'script');
+</script>
+</body>
+</html>

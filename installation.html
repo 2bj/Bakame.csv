@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bakame.Csv - CSV data manipulation made easy in PHP</title>
+<title>Installation - Bakame.Csv</title>
 <link rel="stylesheet" href="assets/normalize.css">
 <link rel="stylesheet" href="assets/prism.css">
 </head>
@@ -17,36 +17,46 @@
 	<menu>
 		<h2>Getting Started</h2>
 		<ul>
-			<li class="selected"><a href="index.html">Introduction</a></li>
+			<li><a href="index.html">Introduction</a></li>
 			<li><a href="simple-example.html">Examples</a></li>
-			<li><a href="installation.html">Installation</a></li>
+			<li class="selected"><a href="installation.html">Installation</a></li>
 		</ul>
 		<h2>The Library</h2>
 		<ul>
-            <li><a href="loading.html">Loading a CSV</a></li>
+			<li><a href="loading.html">Loading a CSV</a></li>
 			<li><a href="reading.html">Reading a CSV</a></li>
 			<li><a href="writing.html">Writing a CSV</a></li>
 			<li><a href="conversion.html">Outputting a CSV</a></li>
 		</ul>
 	</menu>
 	<article>
-		<h1>Introduction</h1>
-		<ul>
-			<li><a href="https://www.githubs.com/nyamsprod/Bakame.csv">View source</a>
-			<li><a href="https://www.twitter.com/nyamsprod">Follow the author</a>
-		</ul>
-		<h2>About</h2>
-		<p>Bakame.csv is a simple library to ease CSV parsing, writing and filtering in PHP. The library goals is to be as lightweight but as powerful as possible using PHP native classes. Bakame.csv was design for developpers who wants to deals with CSV data using modern code and without the bureaucracy.</p>
-		<h2>Highlights</h2>
-		<ul>
-			<li>Simple API
-			<li>Uses SPL to interact with the CSV documents
-			<li>Transform CSV documents into popular format (XML, Json, HTML)
-			<li>Fully Unit tested
-			<li>Composer ready and PSR-2 and PSR-4 compliant
-		</ul>
-		<h2>Questions?</h2>
-		<p>Bakame.csv was created by Nyamagana Butera Ignace</a></p>
+		<h1>Installation</h1>
+
+<h2>System Requirements</h2>
+<p>You need <strong>PHP &gt;= 5.4.0</strong> and the <code>mbstring</code> extension to use <code>Bakame\Csv</code> but the latest stable version of PHP is recommended.</p>
+
+<h2>Installation</h2>
+
+<p>Bakame.csv is available on <a href="https://packagist.org/packages/bakame/csv">Packagist</a> and can be installed using <a href="http://getcomposer.org">Composer</a>:</p>
+
+<pre><code class="language-javascript">
+{
+    "require": {
+        "bakame/csv": "4.*"
+    }
+}
+</code></pre>
+
+<pre><code class="language-php">
+&lt;php
+
+//include the Composer autoloader
+require 'vendor/autoload.php';
+</code></pre>
+
+<h2>Downloading the library</h2>
+
+<p>This project is also available for download on GitHub. Visit <a href="https://github.com/nyamsprod/Bakame.csv/releases">the releases page</a>, select the version you want, and click the preferred archive type download button.</p>
 	</article>
 </main>
 <footer role="contentinfo">
