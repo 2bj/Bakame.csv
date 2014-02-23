@@ -1,6 +1,5 @@
 html, body {
-	margin:0 auto 1em;
-	width:800px;
+	margin:0 auto;
     font:normal 1em/1.5 "Exo 2", helvetica, arial, sans-serif;
 }
 
@@ -39,6 +38,7 @@ main article li > code {
 }
 
 header {
+	margin:0 auto 1em;
 	color:#fff;
 	background-color:#84766E;
 }
