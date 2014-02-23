@@ -59,7 +59,9 @@ $res = $csv->setOffset(10)->setLimit(25)->fetchAll();
 $sth = $dbh->prepare(
 	"SELECT firstname, lastname, email FROM users LIMIT 200"
 );
-$sth->setFetchMode(PDO::FETCH_NUM);
+//because we don't want to duplicate the rows 
+// PDO::FETCH_NUM could also have been used
+$sth->setFetchMode(PDO::FETCH_ASSOC);
 $sth->execute();
 
 //we create the CSV into memory
