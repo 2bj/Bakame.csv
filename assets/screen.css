@@ -10,8 +10,6 @@ main article li > code {
     border: 1px solid #DCDDDD;
     border-radius: 2px;
     display: inline-block;
-    font-family: Consolas,Monaco,'Andale Mono',monospace;
-    font-size: 17px;
-    line-height: 100%;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
     padding: 3px 5px;
 }
