@@ -78,7 +78,7 @@ echo $writer-&gt;__toString();
 <pre><code class="language-php">echo json_encode($writer);
 </code></pre>
 
-<p><strong>Of Note:</strong> When using the <code>toHTML</code>, <code>toXML</code> methods and the <code>json_encode</code> function, the data is internally convert if needed into <code>UTF-8</code>.</p>
+<p class="message-warning"><strong>Of Note:</strong> When using the <code>toHTML</code>, <code>toXML</code> methods and the <code>json_encode</code> function, the data is internally convert if needed into <code>UTF-8</code>.</p>
 <h2>download the CSV</h2>
 <p>If you only wish to make your CSV downloadable just use the <code>output</code> method to return to the output buffer the CSV content.</p>
 <pre><code class="language-php">$reader-&gt;setEncoding('ISO-8859-15');

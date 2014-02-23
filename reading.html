@@ -106,13 +106,13 @@
 <p><code>setFilter</code> method specifies an optional <code>callable</code> function to filter the CSV data. This function takes three parameters at most (see <a href="http://php.net/manual/en/class.callbackfilteriterator.php#callbackfilteriterator.examples">CallbackFilterIterator</a> for more informations)</p>
 <h3>setSortBy($callable = null)</h3>
 <p><code>setSortBy</code> method specifies an optional <code>callable</code> function to sort the CSV data. The function takes two parameters which will be filled by pairs of rows.</p>
-<p><strong>Beware when using this filter that you will be using <code>iterator_to_array</code> which could lead to performance penalty if you have a heavy CSV file to sort</strong></p>
+<p class="message-warning"><strong>Beware when using this filter that you will be using <code>iterator_to_array</code> which could lead to performance penalty if you have a heavy CSV file to sort</strong></p>
 <h3>setOffset($offset) and setLimit($limit)</h3>
 <ul>
 <li><code>setOffset</code> method specifies an optional offset for the return results.</li>
 <li><code>setLimit</code> method specifies an optional maximum rows count for the return results. </li>
 </ul>
-<p><strong>Both methods have no effect on the <code>fetchOne</code> method output</strong></p>
+<p class="message-info"><strong>Both methods have no effect on the <code>fetchOne</code> method output</strong></p>
 <p>Here's an example:</p>
 <pre><code class="language-php">function filterByEmail($row) 
 {
