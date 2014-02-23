@@ -28,17 +28,6 @@ a img {
 	border:none;
 }
 
-main article p > code, 
-main article li > code {
-    background: none repeat scroll 0 0 #F5F6F7;
-    border: 1px solid #DCDDDD;
-    border-radius: 2px;
-    display: inline-block;
-    line-height:.8;
-    font-family: Consolas, Monaco, 'Andale Mono', monospace;
-    padding: 3px;
-}
-
 header {
 	margin:0 auto 1em;
 	padding:.3em 1em;
@@ -89,11 +78,14 @@ footer[role=contentinfo] div {
     color: #999;
 }
 
+main,
 footer[role=contentinfo] div:before,
 footer[role=contentinfo] div:after {
     display: table;
     content: '';
 }
+
+main,
 footer[role=contentinfo] div:after {
     clear: both;
 }
@@ -131,3 +123,38 @@ footer[role=contentinfo] .copyrights {
     font-size: .8em;
     text-align: center;
 }
+
+main menu {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	float:left;
+	width:250px;
+	margin:0;
+}
+
+menu ul {
+	list-style:none;
+	margin:0 0 1em;
+	padding:.3em;
+}
+
+main article {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	float:right;
+	width:calc(100% - 280px);
+	margin:0;
+	padding:0 1em 1em;
+}
+
+main article p > code, 
+main article li > code {
+    background: none repeat scroll 0 0 #F5F6F7;
+    border: 1px solid #DCDDDD;
+    border-radius: 2px;
+    display: inline-block;
+    line-height:.8;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    padding: 3px;
+}
+

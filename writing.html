@@ -56,7 +56,6 @@
 $writer-&gt;insertOne(['john', 'doe', 'john.doe@example.com']); //used with an array
 $writer-&gt;insertOne(&quot;'john','doe','john.doe@example.com'&quot;);   //used with a string
 $writer-&gt;insertOne(new ToStringEnabledClass(&quot;john,doe,john.doe@example.com&quot;)) //used with an object implementing the '__toString' magic method;
-
 </code></pre>
 
 <h3>insertAll</h3>
@@ -76,9 +75,7 @@ $writer-&gt;insertAll($object); //using a Traversable object
 
 <p><strong>When inserting strings don't forget to specify the CSV delimiter and enclosure characters that match those use in the string</strong>.</p>
 
-
 <p><strong>Of note:</strong> When creating a file using the library, first insert all the data that need to be inserted before starting manipulating the CSV. If you manipulate your data before insertion, you may change the file cursor position and get unexpected results.</p>
-
 	</article>
 </main>
 <footer role="contentinfo">
