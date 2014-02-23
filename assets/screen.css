@@ -10,6 +10,19 @@ h1, h2, h3, h4 {
 	font-family:'Noticia Text', Palatino, Georgia, Times, "Times New Roman", serif;
 }
 
+a {
+	color:rgba(254, 65, 65, 1);
+	transition: all .3s linear;
+}
+
+a:hover {
+	color:rgba(254, 65, 65, .8);
+}
+
+a img {
+	border:none;
+}
+
 main article p > code, 
 main article li > code {
     background: none repeat scroll 0 0 #F5F6F7;
