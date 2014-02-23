@@ -38,3 +38,11 @@ main article li > code {
     padding: 3px;
 }
 
+header {
+	color:#fff;
+	background-color:#84766E;
+}
+
+header h1 {
+	color:#fff;
+}
