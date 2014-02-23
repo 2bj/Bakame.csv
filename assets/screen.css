@@ -34,7 +34,7 @@ header {
 	background-color:#050;
 }
 
-header h1 {
+h1 {
 	margin:0;
 	font-size:3em;
 }
@@ -124,7 +124,7 @@ footer[role=contentinfo] .copyrights {
     text-align: center;
 }
 
-main menu {
+menu {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 	float:left;
@@ -132,10 +132,23 @@ main menu {
 	margin:0;
 }
 
+menu h2 {
+	margin:0;
+}
+
 menu ul {
 	list-style:none;
-	margin:0 0 1em;
+	margin:0;
 	padding:.3em;
+}
+
+menu li {
+	padding:.3em;
+}
+
+.selected::before {
+	content:' >> ';
+	color:#000;
 }
 
 main article {
@@ -158,3 +171,22 @@ main article li > code {
     padding: 3px;
 }
 
+.message-info {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin:0 auto .3em;
+    padding:.3em;
+    background-color:#B9E6F7;
+    color:#227796;
+    border-radius:.3em;
+}
+
+.message-warning {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin:0 auto .3em;
+    padding:.3em;
+    background-color:#F2DEDE;
+    color:#B94A48;
+    border-radius:.3em;
+}

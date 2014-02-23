@@ -33,8 +33,11 @@
 	</menu>
 	<article>
 <h1>Inserting data into the CSV</h1>
-
 <p>To create or update a CSV use the following specific <code>Bakame\Csv\Writer</code> methods.</p>
+
+<p class="message-warning">When inserting strings don't forget to specify the CSV delimiter and enclosure characters that match those use in the string.</p>
+
+<p class="message-info">When creating a file using the library, first insert all the data that need to be inserted before starting manipulating the CSV. If you manipulate your data before insertion, you may change the file cursor position and get unexpected results.</p>
 
 <h3>insertOne</h3>
 <p><code>insertOne</code> inserts a single row. This method can take an <code>array</code>, a <code>string</code> or an <code>object</code> implementing the <code>__toString</code> method.</p>
@@ -53,11 +56,10 @@
     }
 }
 
-$writer-&gt;insertOne(['john', 'doe', 'john.doe@example.com']); //used with an array
-$writer-&gt;insertOne(&quot;'john','doe','john.doe@example.com'&quot;);   //used with a string
-$writer-&gt;insertOne(new ToStringEnabledClass(&quot;john,doe,john.doe@example.com&quot;)) //used with an object implementing the '__toString' magic method;
+$writer-&gt;insertOne(['john', 'doe', 'john.doe@example.com']);
+$writer-&gt;insertOne(&quot;'john','doe','john.doe@example.com'&quot;); 
+$writer-&gt;insertOne(new ToStringEnabledClass(&quot;john,doe,john.doe@example.com&quot;)) 
 </code></pre>
-
 <h3>insertAll</h3>
 <p><code>insertAll</code> inserts multiple rows. This method can take an <code>array</code> or a <code>Traversable</code> object to add several rows to the CSV data.</p>
 <pre><code class="language-php">$arr = [
@@ -73,9 +75,8 @@ $object = new ArrayIterator($arr);
 $writer-&gt;insertAll($object); //using a Traversable object
 </code></pre>
 
-<p><strong>When inserting strings don't forget to specify the CSV delimiter and enclosure characters that match those use in the string</strong>.</p>
 
-<p><strong>Of note:</strong> When creating a file using the library, first insert all the data that need to be inserted before starting manipulating the CSV. If you manipulate your data before insertion, you may change the file cursor position and get unexpected results.</p>
+
 	</article>
 </main>
 <footer role="contentinfo">
