@@ -88,6 +88,21 @@ $reader-&gt;setEscape('\\');
 $reader-&gt;setFlags(SplFileObject::READ_AHEAD|SplFileObject::SKIP_EMPTY);
 $reader-&gt;setEncoding('iso-8859-1');
 </code></pre>
+
+<h2>Switching from one class to the other</h2>
+<p>It is possible to switch between modes by using:</p>
+<ul>
+<li>the <code>Bakame\Csv\Writer::getReader</code> method from the <code>Bakame\Csv\Writer</code> class</li>
+<li>the <code>Bakame\Csv\Reader::getWriter</code> method from the <code>Bakame\Csv\Reader</code> class this method accept the optional <code>$open_mode</code> parameter.</li>
+</ul>
+<pre><code class="language-php">$reader = $writer-&gt;getReader();
+$newWriter = $reader-&gt;getWriter('a'); 
+</code></pre>
+
+<p><strong>be careful the <code>$newWriter</code> object is not equal to the <code>$writer</code> object!!</strong></p>
+
+
+
 	</article>
 </main>
 <footer role="contentinfo">
