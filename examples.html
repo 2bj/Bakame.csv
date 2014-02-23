@@ -59,7 +59,8 @@ $res = $csv->setOffset(10)->setLimit(25)->fetchAll();
 $sth = $dbh->prepare(
 	"SELECT firstname, lastname, email FROM users LIMIT 200"
 );
-$sth->fetchMode(PDO::FETCH_NUM);
+$sth->setFetchMode(PDO::FETCH_NUM);
+$sth->execute();
 
 //we create the CSV into memory
 $csv = new \Bakame\Csv\Writer(new SplTempFileObject);
