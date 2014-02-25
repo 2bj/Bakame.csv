@@ -1,47 +1,47 @@
 html, body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-	margin:0 auto;
+    margin:0 auto;
     font:normal 1em/1.5 "Exo 2", helvetica, arial, sans-serif;
 }
 
 h1, h2, h3, h4 {
-	color:#66A676;
-	font-weight:normal;
-	font-family:'Noticia Text', Palatino, Georgia, Times, "Times New Roman", serif;
+    color:#66A676;
+    font-weight:normal;
+    font-family:'Noticia Text', Palatino, Georgia, Times, "Times New Roman", serif;
 }
 
 menu {
-	font-family:'Noticia Text', Palatino, Georgia, Times, "Times New Roman", serif;
+    font-family:'Noticia Text', Palatino, Georgia, Times, "Times New Roman", serif;
 }
 
 a {
-	color:rgba(254, 65, 65, 1);
-	transition: all .3s linear;
+    color:rgba(254, 65, 65, 1);
+    transition: all .3s linear;
 }
 
 a:hover {
-	color:rgba(254, 65, 65, .8);
+    color:rgba(254, 65, 65, .8);
 }
 
 a img {
-	border:none;
+    border:none;
 }
 
 header {
-	margin:0 auto 1em;
-	padding:.3em 1em;
-	background-color:#050;
+    margin:0 auto 1em;
+    padding:.3em 1em;
+    background-color:#050;
 }
 
 h1 {
-	margin:0;
-	font-size:3em;
+    margin:0;
+    font-size:3em;
 }
 
 header p {
-	margin:0;
-	color:#fff;
+    margin:0;
+    color:#fff;
 }
 
 footer[role=contentinfo] {
@@ -127,37 +127,33 @@ footer[role=contentinfo] .copyrights {
 menu {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-	float:left;
-	width:250px;
-	margin:0;
+    margin:0;
 }
 
 menu h2 {
-	margin:0;
+    margin:0;
 }
 
 menu ul {
-	list-style:none;
-	margin:0;
-	padding:.3em;
+    list-style:none;
+    margin:0;
+    padding:.3em;
 }
 
 menu li {
-	padding:.3em;
+    padding:.3em;
 }
 
 .selected::before {
-	content:' >> ';
-	color:#000;
+    content:' >> ';
+    color:#000;
 }
 
 main article {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-	float:right;
-	width:calc(100% - 280px);
-	margin:0;
-	padding:0 1em 1em;
+    margin:0;
+    padding:1em;
 }
 
 main article p > code, 
@@ -189,4 +185,21 @@ main article li > code {
     background-color:#F2DEDE;
     color:#B94A48;
     border-radius:.3em;
+}
+
+@media only screen and (min-width:630px) {
+    html {
+        background-image:linear-gradient(to right, #fce86a 251px, #fff 250px);
+    }
+    menu {
+        float:left;
+        width:250px;
+        margin:0;
+    }
+    main article {
+        float:right;
+        width:calc(100% - 280px);
+        margin:0;
+        padding:0 1em 1em;
+    }
 }
